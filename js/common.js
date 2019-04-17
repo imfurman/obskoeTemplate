@@ -17,17 +17,85 @@ $(function() {
 	// Номер телефона
   $("[type=tel]").mask("+7 (999) 999-99-99");
 
-  $('#mobile-menu').click(function(){
-    $('.front-nav').slideToggle();
+  $('#to_excurse').click(function() { fmodal_window('open', '.order-excurse'); });
+  $('#back-call').click(function() { fmodal_window('open', '.back-form-modal'); });
+  $("#get_pricelist").click(function() { fmodal_window('open', '.price-list-form'); });
+  $('.black-bg-mw, .close').click(function() { fmodal_window('close', ''); });
+
+  $('#back-call-form').validate({
+    rules: {
+      cw8y7ihg6: {
+        required: true,
+        minlength: 3
+      },
+      j89d782g6wuh: {
+        required: true,
+        minlength: 11
+      }
+    },
+    messages: {
+      cw8y7ihg6: {
+        required: "Необходимо указать имя",
+        minlength: "Не менее 3-х символов"
+      },
+      j89d782g6wuh: {
+        required: 'Необходимо указать номер телефона',
+        minlength: 'Необходимо указать полный номер телефона'
+      }
+    }
   });
-  $('#back-call').click(function(){
-    $('.back-form-modal').fadeToggle(300);
-    $('.black-bg-mw').fadeToggle(300);
+  $('#price-list-form').validate({
+    rules: {
+      cw8y7ihg6: {
+        required: true,
+        minlength: 3
+      },
+      j89d782g6wuh: {
+        required: true,
+        minlength: 11
+      }
+    },
+    messages: {
+      cw8y7ihg6: {
+        required: "Необходимо указать имя",
+        minlength: "Не менее 3-х символов"
+      },
+      j89d782g6wuh: {
+        required: 'Необходимо указать номер телефона',
+        minlength: 'Необходимо указать полный номер телефона'
+      }
+    }
   });
-  $('.black-bg-mw, .close').click(function(){
-    $('.back-form-modal').fadeOut(300);
-    $('.black-bg-mw').fadeOut(300);
+  $('#order-excurse').validate({
+    rules: {
+      cw8y7ihg6: {
+        required: true,
+        minlength: 3
+      },
+      j89d782g6wuh: {
+        required: true,
+        minlength: 11
+      }
+    },
+    messages: {
+      cw8y7ihg6: {
+        required: "Необходимо указать имя",
+        minlength: "Не менее 3-х символов"
+      },
+      j89d782g6wuh: {
+        required: 'Необходимо указать номер телефона',
+        minlength: 'Необходимо указать полный номер телефона'
+      }
+    }
   });
+
+  $('#mobile-menu').click(function() {
+    if ( $('.front-nav').length > 0 ) 
+      $('.front-nav').slideToggle();
+    if ( $('.main-top-nav').length > 0 ) 
+      $('.main-top-nav').slideToggle();
+  });
+  
 
   if ( $('#second-slider').length > 0 ) {
     var gen_slider = $('#second-slider');
@@ -88,3 +156,13 @@ $(function() {
   }
 
 });
+function fmodal_window( action, idclass ) {
+  var delay = 300;
+  if ( action == 'open' ) {
+    $(idclass).fadeIn(delay);
+    $('.black-bg-mw').fadeIn(delay);
+  } else {
+    $('.wmodal-window').fadeOut(delay);
+    $('.black-bg-mw').fadeOut(delay);
+  }
+}

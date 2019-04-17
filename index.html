@@ -38,8 +38,8 @@
     </div>
     <div class="contakt-block">
       <div class="phones">
-        <span class="phone">(383) 287-76-93</span>
-        <span class="phone">299-52-74</span>
+        <span class="phone"><a href="tel:3832877693">(383) 287-76-93</a></span>
+        <span class="phone"><a href="tel:2995274">299-52-74</a></span>
       </div>
       <div class="back-call-block">
         <a id="back-call" class="back-call">Заказать звонок</a>
@@ -74,7 +74,7 @@
             <br>вы получаете всю инфраструктуру города.
         </p>
 
-        <button class="btn btn-blue btn-lg">Записаться на экскурсию</button>
+        <button class="btn btn-blue btn-lg" id='to_excurse'>Записаться на экскурсию</button>
 
         <div class="teasers">
           <div class="teaser-item">
@@ -83,7 +83,7 @@
           </div>
           <div class="teaser-item">
             <span>350</span>
-            <p>метров <br>до ьерега моря</p>
+            <p>метров <br>до берега моря</p>
           </div>
           <div class="teaser-item">
             <span>1</span>
@@ -283,7 +283,7 @@
               <br>рассрочки. </p>
         </div>
 
-        <button class="btn btn-blue">Получить прайс-лист</button>
+        <button class="btn btn-blue" id='get_pricelist'>Получить прайс-лист</button>
       </section>
     </div>
 	</main>
@@ -323,12 +323,31 @@
     <br>пожалуйста, обращайтесь к специалисту отдела продаж по телефонам (383) 287-76-93, 299-52-74.</p>
   </div>
 </footer>
-<div class="back-form-modal">
+<div class="wmodal-window price-list-form">
+  <span class="close"></span>
+  <p>Запрос прайс-листа</p>
+  <form action="" id='price-list-form'>
+    <input type="text" name="cw8y7ihg6" placeholder="Ваше имя *">
+    <input type="tel" name="j89d782g6wuh" placeholder="Ваш телефон *">
+    <button class="btn btn-blue">Запросить</button>
+  </form>
+</div>
+<div class="wmodal-window order-excurse">
+  <span class="close"></span>
+  <p>Заказать экскурсию</p>
+  <form action="" id='order-excurse'>
+    <input type="text" name="cw8y7ihg6" placeholder="Ваше имя *">
+    <input type="tel" name="j89d782g6wuh" placeholder="Ваш телефон *">
+    <button class="btn btn-blue">Заказать</button>
+  </form>
+</div>
+<div class="wmodal-window back-form-modal">
   <span class="close"></span>
   <p>Форма обратной связи</p>
-  <form action="">
-    <input type="text" placeholder="Ваше имя...">
-    <input type="tel" placeholder="Ваш телефон...">
+  <form action="" id='back-call-form'>
+    <input type="text" name="cw8y7ihg6" placeholder="Ваше имя *">
+    <input type="tel" name="j89d782g6wuh" placeholder="Ваш телефон *">
+    <textarea name="h78degwdew" placeholder="Комментарий..."></textarea>
     <button class="btn btn-blue">Отправить</button>
   </form>
 </div>
