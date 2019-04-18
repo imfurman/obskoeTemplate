@@ -22,72 +22,9 @@ $(function() {
   $("#get_pricelist").click(function() { fmodal_window('open', '.price-list-form'); });
   $('.black-bg-mw, .close').click(function() { fmodal_window('close', ''); });
 
-  $('#back-call-form').validate({
-    rules: {
-      cw8y7ihg6: {
-        required: true,
-        minlength: 3
-      },
-      j89d782g6wuh: {
-        required: true,
-        minlength: 11
-      }
-    },
-    messages: {
-      cw8y7ihg6: {
-        required: "Необходимо указать имя",
-        minlength: "Не менее 3-х символов"
-      },
-      j89d782g6wuh: {
-        required: 'Необходимо указать номер телефона',
-        minlength: 'Необходимо указать полный номер телефона'
-      }
-    }
-  });
-  $('#price-list-form').validate({
-    rules: {
-      cw8y7ihg6: {
-        required: true,
-        minlength: 3
-      },
-      j89d782g6wuh: {
-        required: true,
-        minlength: 11
-      }
-    },
-    messages: {
-      cw8y7ihg6: {
-        required: "Необходимо указать имя",
-        minlength: "Не менее 3-х символов"
-      },
-      j89d782g6wuh: {
-        required: 'Необходимо указать номер телефона',
-        minlength: 'Необходимо указать полный номер телефона'
-      }
-    }
-  });
-  $('#order-excurse').validate({
-    rules: {
-      cw8y7ihg6: {
-        required: true,
-        minlength: 3
-      },
-      j89d782g6wuh: {
-        required: true,
-        minlength: 11
-      }
-    },
-    messages: {
-      cw8y7ihg6: {
-        required: "Необходимо указать имя",
-        minlength: "Не менее 3-х символов"
-      },
-      j89d782g6wuh: {
-        required: 'Необходимо указать номер телефона',
-        minlength: 'Необходимо указать полный номер телефона'
-      }
-    }
-  });
+  fform_validate('#back-call-form');
+  fform_validate('#price-list-form');
+  fform_validate('#order-excurse');
 
   $('#mobile-menu').click(function() {
     if ( $('.front-nav').length > 0 ) 
@@ -155,6 +92,10 @@ $(function() {
 
   }
 
+  $('.gallery [data-fancybox]').fancybox({
+    baseClass: 'ffsz-gallery'
+  });
+
 });
 function fmodal_window( action, idclass ) {
   var delay = 300;
@@ -165,4 +106,25 @@ function fmodal_window( action, idclass ) {
     $('.wmodal-window').fadeOut(delay);
     $('.black-bg-mw').fadeOut(delay);
   }
+}
+
+function fform_validate(id) {
+  $(id).submit(function() {
+    var action = true;
+    
+    if ( $(this).children('input[name="cw8y7ihg6"]').val() == '' || $(this).children('input[name="cw8y7ihg6"]').val().length < 3 ) {
+      $(this).children('input[name="cw8y7ihg6"]').attr('placeholder', 'Ваше имя - обязательно к заполнению');
+      if ( $(this).children('input[name="cw8y7ihg6"]').val().length < 3 && $(this).children('input[name="cw8y7ihg6"]').val().length > 0 )
+        $(this).children('input[name="cw8y7ihg6"]').val('').attr('placeholder', 'Ваше имя - не менее 3-х символов');
+      action = false;
+    }
+
+    if ( $(this).children('input[name="j89d782g6wuh"]').val() == '' ) {
+      $(this).children('input[name="j89d782g6wuh"]').attr('placeholder', 'Ваш телефон - обязательно к заполнению');
+      action = false;
+    }
+
+    if ( action == false )
+      return false;
+  });
 }
