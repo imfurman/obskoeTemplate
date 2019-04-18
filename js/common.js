@@ -79,7 +79,7 @@ $(function() {
       for ( i = 1; i <= len; i++ ) {
         if ( $('.sixth-slider .owl-dots > button:nth-child('+i+')').hasClass('active') ) {
           point_id = i;
-          $('.background').css({'background-image':'url('+$('#sixth-slider .owl-stage > .owl-item:nth-child('+i+') .picture img').attr('src')+')'});
+          $('.background').css({'background-image':'url('+$('#sixth-slider .owl-stage > .owl-item:nth-child('+i+') .picture img').attr('blur-pic')+')'});
         }
       }
       
